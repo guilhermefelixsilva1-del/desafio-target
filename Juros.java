@@ -10,11 +10,11 @@ public class Juros {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Valor da conta: ");
-        double valor = Double.parseDouble(scanner.nextLine().replace(",", "."));
+        double valor = Double.parseDouble(scanner.nextLine().trim().replace(",", "."));
 
         System.out.print("Data de vencimento (dd/mm/aaaa): ");
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate vencimento = LocalDate.parse(scanner.nextLine(), formato);
+        LocalDate vencimento = LocalDate.parse(scanner.nextLine().trim(), formato);
 
         LocalDate hoje = LocalDate.now();
         long diasAtraso = ChronoUnit.DAYS.between(vencimento, hoje);

@@ -52,7 +52,10 @@ public class Estoque {
             System.out.println("3 - Ver movimentacoes");
             System.out.println("0 - Sair");
             System.out.print("Escolha uma opcao: ");
-            String opcao = scanner.nextLine();
+            if (!scanner.hasNextLine()) {
+                break;
+            }
+            String opcao = scanner.nextLine().trim();
 
             if (opcao.equals("0")) {
                 break;
@@ -72,7 +75,7 @@ public class Estoque {
             }
 
             System.out.print("Codigo do produto: ");
-            int codigo = Integer.parseInt(scanner.nextLine());
+            int codigo = Integer.parseInt(scanner.nextLine().trim());
             Produto produto = buscarProduto(codigo);
             if (produto == null) {
                 System.out.println("Produto nao encontrado!");
@@ -80,14 +83,14 @@ public class Estoque {
             }
 
             System.out.print("Quantidade: ");
-            int quantidade = Integer.parseInt(scanner.nextLine());
+            int quantidade = Integer.parseInt(scanner.nextLine().trim());
             if (quantidade <= 0) {
                 System.out.println("A quantidade precisa ser maior que zero!");
                 continue;
             }
 
             System.out.print("Descricao da movimentacao: ");
-            String descricao = scanner.nextLine();
+            String descricao = scanner.nextLine().trim();
 
             String tipo;
             if (opcao.equals("1")) {
